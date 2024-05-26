@@ -1,0 +1,56 @@
+.login-container {
+    display: block;
+    background-color: green;
+    color: white;
+    padding: 50px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 4px 2px rgb(151, 151, 151);
+}
+
+.login-container input {
+    border: none;
+    background-color: transparent;
+    border-bottom: 1px solid white;
+    margin: 10px;
+    color: white;
+}
+
+input:focus {
+    outline: none;
+}
+
+.login-container button {
+    cursor: pointer;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    width: 80%;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.548);
+    transition: width 0.5s;
+}
+
+.login-container button:hover {
+    width: 90%;
+}
+
+.toast {
+    position: fixed;
+    top: -50px;
+    left: 10px;
+    color: black;
+    background-color: rgb(184, 34, 34);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.548);
+    transition: top 0.5s;
+}
+
+.toast.show {
+    top: 20px;
+}
