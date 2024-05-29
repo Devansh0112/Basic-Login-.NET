@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using backend.Models;
+using backend.Services;
 
 namespace backend.Controllers
 {
@@ -7,16 +8,39 @@ namespace backend.Controllers
     [Route("api/[controller]")]
     public class AuthController : ControllerBase
     {
-        [HttpPost("login")]
-        public IActionResult Login([FromBody] User model)
+        private readonly UserService _userService;
+
+        public AuthController(UserService userService)
         {
-            // For simplicity, we're using hardcoded username and password.
-            // In a real application, you should check these against a database.
-            if (model.Username == "user" && model.Password == "password")
+            _userService = userService ?? throw new ArgumentNullException(nameof(userService));
+        }
+
+        [HttpPost("login")]
+        public async Task<IActionResult> Login([FromBody] User model)
+        {
+            var existingUser = await _userService.GetByUsernameAsync(model.Username);
+            if (existingUser != null && BCrypt.Net.BCrypt.Verify(model.Password, existingUser.Password))
             {
-                return Ok(new { success = true });
+                return Ok(new { success = true, message = "Login Successful" });
             }
-            return Unauthorized(new { success = false });
+
+            return Unauthorized(new { success = false, message = "Login Failed" });
+        }
+
+        [HttpPost("register")]
+        public async Task<IActionResult> Register([FromBody] User model)
+        {
+            var existingUser = await _userService.GetByUsernameAsync(model.Username);
+            if (existingUser != null)
+            {
+                return BadRequest(new { success = false, message = "User already exists" });
+            }
+
+            var hashedPassword = BCrypt.Net.BCrypt.HashPassword(model.Password);
+            var newUser = new User { Username = model.Username, Password = hashedPassword };
+            await _userService.CreateAsync(newUser);
+
+            return Ok(new { success = true });
         }
     }
 }

@@ -1,4 +1,5 @@
 using backend.Models;
+using backend.Services;
 using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,6 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.Configure<UserDatabaseSettings>(
     builder.Configuration.GetSection("UserDatabase"));
+builder.Services.AddSingleton<UserService>();
 
 // Add Swagger services
 builder.Services.AddSwaggerGen(c =>

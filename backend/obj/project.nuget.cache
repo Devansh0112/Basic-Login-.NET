@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "jHH//SyB7H40ggWhw5fmRkOnM1DxTTFwqZfXt+SnaBCMJSadmWIPASFr2uYpC2qiyoUVayggysxkvZa6TP4fSQ==",
+  "dgSpecHash": "RHlwOa5xXUfEfb9UYrgA14nt2BUzmqI8JsxGoyxOaJb7fRnT1Jh272WbnGDwFBdz3Q/FHJPWkqyQ+GWwc7VyLg==",
   "success": true,
   "projectFilePath": "C:\\Users\\devan\\OneDrive\\Documents\\Github Projects\\RA-login\\backend\\backend.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\devan\\.nuget\\packages\\awssdk.core\\3.7.100.14\\awssdk.core.3.7.100.14.nupkg.sha512",
     "C:\\Users\\devan\\.nuget\\packages\\awssdk.securitytoken\\3.7.100.14\\awssdk.securitytoken.3.7.100.14.nupkg.sha512",
+    "C:\\Users\\devan\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\devan\\.nuget\\packages\\dnsclient\\1.6.1\\dnsclient.1.6.1.nupkg.sha512",
     "C:\\Users\\devan\\.nuget\\packages\\microsoft.aspnetcore.cors\\2.2.0\\microsoft.aspnetcore.cors.2.2.0.nupkg.sha512",
     "C:\\Users\\devan\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.2.0\\microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",
