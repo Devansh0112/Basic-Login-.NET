@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './Login.css';
+import image from '../../Assets/bio-lab.png';
 
 const Login = () => {
   const [username, setUsername] = useState('');
@@ -12,12 +13,12 @@ const Login = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    if(!validateEmail(username)) {
+    if (!validateEmail(username)) {
       setIsError(true);
       setErrorMessage('Please enter a valid email address');
       return;
     }
-    if(!validatePassword(password)) {
+    if (!validatePassword(password)) {
       setIsError(true);
       setErrorMessage('Password must be atleast 8 characters and include a number');
       return;
@@ -32,6 +33,10 @@ const Login = () => {
     } catch (error) {
       console.error('Login error', error);
     }
+  };
+
+  const redirectToSignUp = async () => {
+    navigate('/register');
   };
 
   useEffect(() => {
@@ -54,23 +59,26 @@ const Login = () => {
   };
 
   return (
-  <div className='login-container'>
-    <form onSubmit={handleLogin}>
-      <div>
-        <label>Username</label>
-        <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} required />        
-      </div>
-      <div>
-        <label>Password</label>
-        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
-      </div>
-      <button type="submit">Login</button>
-    </form>
+    <div className='login-container'>
+      <h1>Log In</h1>
+      <img src={image} height={'300px'} width={'300px'} />
+      <form onSubmit={handleLogin}>
+        <div>
+          <label>Email</label> <br />
+          <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} maxLength={'50'} required />
+        </div>
+        <div>
+          <label>Password</label> <br />
+          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+        </div>
+        <button type="submit">Login</button>
+      <small className='user-sign-in' onClick={redirectToSignUp}>New user? Sign up</small> <br />
+      </form>
 
-    <div className={`toast ${isError ? 'show' : ''}`}>
-      <span>{errorMessage}</span>
+      <div className={`toast ${isError ? 'show' : ''}`}>
+        <span>{errorMessage}</span>
+      </div>
     </div>
-  </div>
   );
 };
 

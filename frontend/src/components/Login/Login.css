@@ -1,18 +1,26 @@
 .login-container {
     display: block;
-    background-color: green;
+    width: 500px;
+    background-color: rgba(19, 25, 113, 0.792);
     color: white;
     padding: 50px;
     border-radius: 10px;
     box-shadow: 2px 2px 4px 2px rgb(151, 151, 151);
+    text-align: center;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    font-style: normal;
 }
 
 .login-container input {
+    width: 50%;
     border: none;
     background-color: transparent;
-    border-bottom: 1px solid white;
+    border: 1px solid white;
+    border-radius: 5px;
     margin: 10px;
     color: white;
+    padding: 5px;
 }
 
 input:focus {
@@ -27,15 +35,38 @@ input:focus {
     margin-left: auto;
     margin-right: auto;
     margin-top: 30px;
-    width: 80%;
+    width: 50%;
     border-radius: 5px;
     border: none;
     box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.548);
     transition: width 0.5s;
+    margin-bottom: 10px;
 }
 
 .login-container button:hover {
-    width: 90%;
+    width: 60%;
+}
+
+.login-container h1 {
+    margin: 0;
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    opacity: 1;
+    animation-name: fade;
+    animation-duration: 2s;
+}
+
+.login-container form {
+    opacity: 1;
+    animation-name: fade;
+    animation-duration: 2s;
+}
+
+.login-container img {
+    opacity: 1;
+    animation-name: fade;
+    animation-duration: 2s;
 }
 
 .toast {
@@ -54,3 +85,14 @@ input:focus {
 .toast.show {
     top: 20px;
 }
+
+
+.user-sign-in {
+    border-bottom: 0.5px solid white;
+    cursor: pointer;
+}
+
+@keyframes fade {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
